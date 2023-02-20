@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
 {
     [Header("ボール")]
     public GameObject ballPrefab;
+    [Header("ボールの速度")]
+    public float speed = 10f;
     [Header("プレイヤ")]
     public GameObject playerPrefab;
     [Header("アイテム")]
@@ -142,6 +144,11 @@ public class GameManager : MonoBehaviour
     {
         //ボールが2倍の大きさ
         _ball.transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
+    }
+
+    public void Item4()
+    {
+        //ボールの速さ
     }
 
     void ChangeStatus(Status nextstatus)
