@@ -12,7 +12,7 @@ public class Balls : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody>();
         _renderer = GetComponent<Renderer>();
-        _rigidbody.velocity = new Vector3(10f, 10f, 0f); //ボールの速さ
+        _rigidbody.velocity = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 1).normalized * GameManager.instance.speed; ; //ボールの速さ
         _transform = transform;
     }
 
