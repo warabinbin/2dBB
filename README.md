@@ -20,3 +20,5 @@ https://github.com/warabinbin/2dBB/blob/main/Assets/Scripts/GameManager.cs
 ## 課題点
 ・ポーズボタンを左クリックに変更</Br>
 ・ステージクリア時のアイテムを削除</Br>
+・Item2を使った時の残機増加　</Br>
+・
