@@ -3,7 +3,7 @@
 
 <!-- https://user-images.githubusercontent.com/64608456/224575322-f85dd9be-5aa5-4379-846c-92f8807f6020.mp4-->
 
-GameManager の工夫:</BR>
+GameManagerの工夫:</BR>
 ゲームフローの管理: スタート画面、プレイ中、ゲームオーバー画面など、異なるゲーム状態を適切に管理する GameManager クラスを実装しました。</BR>
 
 ※アイテムが3種類あります</BR>
