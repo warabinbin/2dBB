@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Threading.Tasks;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -41,7 +43,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Enviroment.SetActive(false);
-
         instance = this;
         _stageNo = 0;
         ChangeStatus(Status.MENU);
@@ -71,17 +72,23 @@ public class GameManager : MonoBehaviour
                 }
                 break;
             case Status.FINISH:
-                if (Input.anyKeyDown)
-                {
-                    panelFinish.SetActive(false);
-                    Destroy(_player);
-                    Destroy(_stage);
-                    _stageNo = 0;
-                    ChangeStatus(Status.MENU);
-                }
+
                 break;
             default:
                 break;
+        }
+
+        //右クリックで一時停止
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (Time.timeScale == 1f)
+            {
+                Time.timeScale = 0f;
+            }
+            else
+            {
+                Time.timeScale = 1f;
+            }
         }
     }
 
@@ -106,18 +113,6 @@ public class GameManager : MonoBehaviour
         #endif
     }
 
-    public void PauseClick()
-    {
-        if(Time.timeScale == 1f)
-        {
-            Time.timeScale = 0f;
-        }
-        else
-        {
-            Time.timeScale = 1f;
-        }
-    }
-
     public void ItemGenerate()
     {
         _itemNo = Random.Range(0,itemPrefab.Length);
@@ -133,11 +128,8 @@ public class GameManager : MonoBehaviour
     public void Item2()
     {
         //ボール増える
-        for (int i = 0; i < 2; i++)
-        {
-            _ball = Instantiate(ballPrefab);
-            Balls++; //残機数
-        }
+        _ball = Instantiate(ballPrefab);
+        Balls++; //残機数
     }
 
     public void Item3()
@@ -149,6 +141,22 @@ public class GameManager : MonoBehaviour
     public void Item4()
     {
         //ボールの速さ
+    }
+
+    //Scene Reload
+    async void ReloadScene()
+    {
+        await Task.Delay(1000);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    //オブジェクト一括削除
+    void DestroyBSPI()
+    {
+        Destroy(_ball);
+        Destroy(_stage);
+        Destroy(_player);
+        Destroy(_item);
     }
 
     void ChangeStatus(Status nextstatus)
@@ -167,9 +175,7 @@ public class GameManager : MonoBehaviour
                 _player = Instantiate(playerPrefab);
                 break;
             case Status.STAGECLEAR:
-                Destroy(_ball);
-                Destroy(_stage);
-                Destroy(_player);
+                DestroyBSPI();
                 Enviroment.SetActive(false);
                 _stageNo++;
 
@@ -183,19 +189,18 @@ public class GameManager : MonoBehaviour
                     clearText.text = "STAGE CLEAR";
                     panelStageClear.SetActive(true);
                 }
+
                 break;
             case Status.LOADSTAGE:
                 _stage = Instantiate(stagePrefab[_stageNo]); 
                 Enviroment.SetActive(true);
-
                 ChangeStatus(Status.GAME);
                 break;
             case Status.FINISH:
-                Destroy(_ball);
-                Destroy(_stage);
-                Destroy(_player);
+                DestroyBSPI();
                 Enviroment.SetActive(false);
                 panelFinish.SetActive(true);
+                ReloadScene();
                 break;
         }
     }

@@ -14,7 +14,7 @@ public class Block : MonoBehaviour
 
             if (block_hp == 0)
             {
-                //アイテムを1/5の確立で生成
+                //アイテムを1/Xの確立で生成
                 if (Random.Range(0, 1) == 0)
                 {
                     GameManager.instance.ItemGenerate();

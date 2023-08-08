@@ -12,11 +12,12 @@ public class Balls : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody>();
         _renderer = GetComponent<Renderer>();
-        _rigidbody.velocity = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 1).normalized * GameManager.instance.speed; ; //ボールの速さ
+        _rigidbody.velocity = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized * GameManager.instance.speed;
+
         _transform = transform;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         Vector3 velocity = _rigidbody.velocity;
         float clampedspeed = Mathf.Clamp(velocity.magnitude,5f, 10f); //最低速,最高速
