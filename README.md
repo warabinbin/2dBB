@@ -5,6 +5,8 @@
 
 ## GameManagerの工夫:
 ゲームフローの管理: スタート画面、プレイ中、ゲームオーバー画面など、異なるゲーム状態を適切に管理する GameManager クラスを実装しました。</BR>
+
+
 ※GameManager.csで全ての状態を管理出来るようにしました。</BR>
 https://github.com/warabinbin/2dBB/blob/main/Assets/Scripts/GameManager.cs
 
