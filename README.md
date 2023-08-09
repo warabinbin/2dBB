@@ -3,7 +3,7 @@
 
 <!-- https://user-images.githubusercontent.com/64608456/224575322-f85dd9be-5aa5-4379-846c-92f8807f6020.mp4-->
 
-## クラスの設計：
+## クラスの設計
 ### ・Block クラス： 
 ブロックの属性や挙動を管理するクラス。耐久度の情報を持ちます。</BR>
 ### ・Ball クラス：
@@ -18,7 +18,7 @@
 ![GameManager](https://user-images.githubusercontent.com/64608456/224575249-3728df0d-6858-4fe5-a485-c6d1f23e25cf.JPG)
 https://github.com/warabinbin/2dBB/blob/main/Assets/Scripts/GameManager.cs
 
-## Itemの工夫：
+## Item
 パワーアップアイテム：プレイヤーが特定のブロックを破壊すると、ボールの速度が上昇する、パドルが大きくなるなどのパワーアップアイテムを実装しました</BR>
 
 ## 課題点
