@@ -21,5 +21,5 @@ https://github.com/warabinbin/2dBB/blob/main/Assets/Scripts/GameManager.cs
 パワーアップアイテム：プレイヤーが特定のブロックを破壊すると、ボールの速度が上昇する、パドルが大きくなるなどのパワーアップアイテムを実装しました</BR>
 
 ## 課題点
-・ポーズボタンを左クリックに変更　ポーズ中点滅</Br>
+・ポーズ中点滅</Br>
 ・ハマるのをなくす </Br>
