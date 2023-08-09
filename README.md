@@ -1,11 +1,6 @@
 ## ブロック崩し
 
-
-
 https://github.com/warabinbin/2dBB/assets/64608456/7d0b8787-cf77-4f27-9a9d-d14c50c71be8
-
-
-<!-- https://user-images.githubusercontent.com/64608456/224575322-f85dd9be-5aa5-4379-846c-92f8807f6020.mp4-->
 
 ## クラスの設計
 ### ・Block クラス： 
