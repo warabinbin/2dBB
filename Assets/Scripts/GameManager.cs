@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
     {
         switch (_status)
         {
-            case Status.GAME:
+            case Status.GAME:  
                 hpText.text = "残機:" + Balls;
                 if (_ball == null)
                 {
@@ -172,9 +172,11 @@ public class GameManager : MonoBehaviour
                 ChangeStatus(Status.LOADSTAGE);
                 break;
             case Status.GAME:
+                Cursor.visible = false;
                 _player = Instantiate(playerPrefab);
                 break;
             case Status.STAGECLEAR:
+                Cursor.visible = true;
                 DestroyBSPI();
                 Enviroment.SetActive(false);
                 _stageNo++;
@@ -197,6 +199,7 @@ public class GameManager : MonoBehaviour
                 ChangeStatus(Status.GAME);
                 break;
             case Status.FINISH:
+                Cursor.visible = true;
                 DestroyBSPI();
                 Enviroment.SetActive(false);
                 panelFinish.SetActive(true);

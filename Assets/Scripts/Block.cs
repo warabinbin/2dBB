@@ -12,7 +12,7 @@ public class Block : MonoBehaviour
         {
             block_hp--;
 
-            if (block_hp == 0)
+            if (block_hp <= 0)
             {
                 //アイテムを1/Xの確立で生成
                 if (Random.Range(0, 1) == 0)
