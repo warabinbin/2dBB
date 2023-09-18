@@ -4,16 +4,42 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    Vector3 mousePos;
-    private float maxLeftPos = 60f; //30f
-    private float maxRightPos =2000f; //435f
-    private float maxTopPos = 1000f; //250f
-    private float maxDownPos = 0f; //0f
+    private float speed = 10.0f;
+    private float maxLeftPos = -7.5f;
+    private float maxRightPos = 7.5f;
+    private float maxTopPos = 20.0f;
+    private float maxDownPos = -4.0f;
 
     void Update()
     {
-        mousePos = Input.mousePosition;
-        transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Mathf.Clamp(mousePos.x,maxLeftPos,maxRightPos), Mathf.Clamp(mousePos.y, maxDownPos, maxTopPos), 10f));
+        MovePlayer();
+    }
+
+    void MovePlayer()
+    {
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            if (transform.position.x > maxLeftPos)
+                transform.position += Vector3.left * speed * Time.deltaTime;
+        }
+
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            if (transform.position.x < maxRightPos)
+                transform.position += Vector3.right * speed * Time.deltaTime;
+        }
+
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            if (transform.position.y < maxTopPos)
+                transform.position += Vector3.up * speed * Time.deltaTime;
+        }
+
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+            if (transform.position.y > maxDownPos)
+                transform.position += Vector3.down * speed * Time.deltaTime;
+        }
     }
 
     private void OnCollisionEnter(Collision other)
