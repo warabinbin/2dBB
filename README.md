@@ -24,4 +24,3 @@ https://github.com/warabinbin/2dBB/blob/main/Assets/Scripts/GameManager.cs
 ## 課題点
 ・ポーズ中点滅</Br>
 ・ハマるのをなくす </Br>
-・Enterで次のレベルへ（マウス操作が面倒なので） </Br>
